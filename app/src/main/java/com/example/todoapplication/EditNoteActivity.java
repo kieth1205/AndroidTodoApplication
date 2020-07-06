@@ -25,10 +25,6 @@ public class EditNoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // set theme
-        SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE);
-        int theme = sharedPreferences.getInt(MainActivity.THEME_Key, R.style.AppTheme);
-        setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edite_note);
         Toolbar toolbar = findViewById(R.id.edit_note_activity_toolbar);

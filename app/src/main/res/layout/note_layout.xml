@@ -28,7 +28,7 @@
             android:layout_margin="4dp"
             android:layout_marginBottom="3dp"
             android:maxLines="3"
-            android:textSize="18sp" />
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/note_date"
@@ -45,6 +45,5 @@
             android:layout_marginTop="3dp"
             android:background="@color/view_backg_color" />
     </LinearLayout>
-
 
 </LinearLayout>

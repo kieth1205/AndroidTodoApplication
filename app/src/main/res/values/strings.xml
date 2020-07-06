@@ -4,4 +4,11 @@
     <string name="whats_in_your_mind">Whats in your mind</string>
     <string name="delete_notes">Delete Notes</string>
     <string name="no_notes">No Notes!</string>
+    <string name="home">Home</string>
+    <string name="notes">Notes</string>
+    <string name="todos">Todos</string>
+    <string name="tasks">Task list</string>
+    <string name="tags">TAGS</string>
+    <string name="drawer_open">Drawer_open</string>
+    <string name="drawer_close">Drawer_close</string>
 </resources>

@@ -7,6 +7,10 @@ _Ứng dụng quản lý công việc được viết bằng Android_
 - Adobe XD
 
 ### Chức năng
+- Ghi chú thông qua Note
+- Lên danh sách công việc thông qua Todo List
+- Tạo thẻ công việc thông qua TAG
+- Tạo nhắc nhở cho người dùng về công việc sắp diễn ra
 
 ### Hướng dẫn sử dụng
 

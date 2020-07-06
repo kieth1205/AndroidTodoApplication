@@ -22,5 +22,4 @@
         android:text="@string/no_notes"
         android:textSize="18sp" />
 
-
 </RelativeLayout>
