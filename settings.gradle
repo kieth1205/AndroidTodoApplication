@@ -1,2 +1,2 @@
-rootProject.name='TodoApplication'
 include ':app'
+rootProject.name = "NodeApp"

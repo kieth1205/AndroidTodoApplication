@@ -1,14 +1,17 @@
 <resources>
     <string name="app_name">Note App</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Thang Nguyen</string>
+    <string name="nav_header_subtitle">thang.120598@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="whats_in_your_mind">Whats in your mind</string>
-    <string name="delete_notes">Delete Notes</string>
-    <string name="no_notes">No Notes!</string>
-    <string name="home">Home</string>
-    <string name="notes">Notes</string>
-    <string name="todos">Todos</string>
-    <string name="tasks">Task list</string>
-    <string name="tags">TAGS</string>
-    <string name="drawer_open">Drawer_open</string>
-    <string name="drawer_close">Drawer_close</string>
+
+    <string name="menu_note_list">Note List</string>
+    <string name="menu_task_list">Task List</string>
+    <string name="menu_todo_list">Todo List</string>
+    <string name="menu_tag">Tag</string>
+    <string name="menu_home">Home</string>
+    <string name="key_No_Data">No Data</string>
 </resources>

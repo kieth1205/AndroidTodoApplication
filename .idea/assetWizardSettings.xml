@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/perm_contact_calendar/baseline_perm_contact_calendar_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/add/baseline_add_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="bbbbbb" />
-                            <entry key="outputName" value="ic_tag" />
-                            <entry key="sourceFile" value="D:\AndroidTodoApplication" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_baseline_add_24_whith" />
+                            <entry key="sourceFile" value="D:\AndroidTest\NodeApp" />
                           </map>
                         </option>
                       </PersistentState>

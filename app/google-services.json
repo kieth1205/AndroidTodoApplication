@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067962939066",
+    "firebase_url": "https://nodeapp-46fe6.firebaseio.com",
+    "project_id": "nodeapp-46fe6",
+    "storage_bucket": "nodeapp-46fe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067962939066:android:5e906391e72e798f937483",
+        "android_client_info": {
+          "package_name": "com.thang.nodeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067962939066-qko9i6g5avoq2f9cg7644gpuf5e3553r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDECp1fo1tvdqod1AxU-K3JYZM63ye-zBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067962939066-qko9i6g5avoq2f9cg7644gpuf5e3553r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

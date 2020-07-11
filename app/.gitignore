@@ -1,8 +1,1 @@
-.DS_Store
-.gradle
-.idea
-local.properties
-build
-gradle.properties.rej
-debug
-release
+/build

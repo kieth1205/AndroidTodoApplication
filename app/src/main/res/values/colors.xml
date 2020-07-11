@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E3AF90</color>
-    <color name="view_backg_color">#c7c7C7</color>
+    <color name="colorPrimary">#C966A3</color>
+    <color name="colorPrimaryDark">#C1C966</color>
+    <color name="colorAccent">#66C9C9</color>
 </resources>
