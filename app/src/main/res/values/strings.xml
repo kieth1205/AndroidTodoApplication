@@ -14,4 +14,6 @@
     <string name="menu_tag">Tag</string>
     <string name="menu_home">Home</string>
     <string name="key_No_Data">No Data</string>
+
+    <string name="todo_edit">Your planning</string>
 </resources>

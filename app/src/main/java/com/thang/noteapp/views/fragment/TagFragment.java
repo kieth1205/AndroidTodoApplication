@@ -1,15 +1,16 @@
-package com.thang.nodeapp.views.fragment;
+package com.thang.noteapp.views.fragment;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.thang.nodeapp.R;
+import com.thang.noteapp.R;
 
-public class NoteListFragment extends BaseFragment {
+
+public class TagFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_note_list;
+        return R.layout.fragment_tag;
     }
 
     @Override

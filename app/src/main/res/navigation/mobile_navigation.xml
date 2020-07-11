@@ -6,25 +6,31 @@
     app:startDestination="@+id/nav_node_list">
 
     <fragment
+        android:id="@+id/nav_home"
+        android:label="@string/menu_home"
+        android:name="com.thang.noteapp.views.fragment.HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
         android:id="@+id/nav_node_list"
-        android:name="com.thang.nodeapp.views.fragment.NoteListFragment"
+        android:name="com.thang.noteapp.views.fragment.NoteListFragment"
         android:label="@string/menu_note_list"
         tools:layout="@layout/fragment_note_list" />
 
     <fragment
         android:id="@+id/nav_task_list"
-        android:name="com.thang.nodeapp.views.fragment.TaskListFragment"
+        android:name="com.thang.noteapp.views.fragment.TaskListFragment"
         android:label="@string/menu_task_list"
         tools:layout="@layout/fragment_task_list" />
 
     <fragment
         android:id="@+id/nav_todo_list"
-        android:name="com.thang.nodeapp.views.fragment.TodoListFragment"
+        android:name="com.thang.noteapp.views.fragment.TodoListFragment"
         android:label="@string/menu_todo_list"
         tools:layout="@layout/fragment_todo_list" />
     <fragment
         android:id="@+id/nav_tag"
-        android:name="com.thang.nodeapp.views.fragment.TagFragment"
+        android:name="com.thang.noteapp.views.fragment.TagFragment"
         android:label="@string/menu_tag"
         tools:layout="@layout/fragment_tag" />
 </navigation>

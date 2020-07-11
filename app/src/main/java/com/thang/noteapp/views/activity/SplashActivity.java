@@ -1,11 +1,11 @@
-package com.thang.nodeapp.views.activity;
+package com.thang.noteapp.views.activity;
 
 import androidx.annotation.Nullable;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.thang.nodeapp.R;
+import com.thang.noteapp.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

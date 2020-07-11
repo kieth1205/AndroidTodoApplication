@@ -1,4 +1,4 @@
-package com.thang.nodeapp;
+package com.thang.noteapp;
 
 import android.content.Context;
 

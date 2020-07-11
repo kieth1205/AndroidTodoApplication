@@ -1,18 +1,18 @@
-package com.thang.nodeapp.model;
+package com.thang.noteapp.model;
 
 import java.util.List;
 
-public class TaskRespont {
+public class TaskResponse {
 
     private String id;
     private String title;
-    private List<ChildrenTaskRespont> childrenTasks;
+    private List<ChildrenTaskResponse> childrenTasks;
     private int progress;
 
-    public TaskRespont() {
+    public TaskResponse() {
     }
 
-    public TaskRespont(String id, String title, List<ChildrenTaskRespont> childrenTasks, int progress) {
+    public TaskResponse(String id, String title, List<ChildrenTaskResponse> childrenTasks, int progress) {
         this.id = id;
         this.title = title;
         this.childrenTasks = childrenTasks;
@@ -35,11 +35,11 @@ public class TaskRespont {
         this.title = title;
     }
 
-    public List<ChildrenTaskRespont> getChildrenTasks() {
+    public List<ChildrenTaskResponse> getChildrenTasks() {
         return childrenTasks;
     }
 
-    public void setChildrenTasks(List<ChildrenTaskRespont> childrenTasks) {
+    public void setChildrenTasks(List<ChildrenTaskResponse> childrenTasks) {
         this.childrenTasks = childrenTasks;
     }
 

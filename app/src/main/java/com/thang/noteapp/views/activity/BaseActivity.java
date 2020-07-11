@@ -1,4 +1,4 @@
-package com.thang.nodeapp.views.activity;
+package com.thang.noteapp.views.activity;
 
 import android.content.Context;
 import android.os.Bundle;

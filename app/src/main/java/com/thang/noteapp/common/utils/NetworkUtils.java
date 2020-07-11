@@ -1,4 +1,4 @@
-package com.thang.nodeapp.common.utils;
+package com.thang.noteapp.common.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

@@ -1,4 +1,4 @@
-package com.thang.nodeapp.views.fragment;
+package com.thang.noteapp.views.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

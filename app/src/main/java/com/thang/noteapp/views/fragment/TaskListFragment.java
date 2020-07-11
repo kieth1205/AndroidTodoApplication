@@ -1,4 +1,4 @@
-package com.thang.nodeapp.views.fragment;
+package com.thang.noteapp.views.fragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.thang.nodeapp.R;
+import com.thang.noteapp.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;

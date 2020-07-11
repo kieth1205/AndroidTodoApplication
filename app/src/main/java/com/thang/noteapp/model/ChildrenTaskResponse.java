@@ -1,16 +1,16 @@
-package com.thang.nodeapp.model;
+package com.thang.noteapp.model;
 
-public class ChildrenTaskRespont {
+public class ChildrenTaskResponse {
 
     private String id;
     private String name;
     private String content;
     private int progress;
 
-    public ChildrenTaskRespont() {
+    public ChildrenTaskResponse() {
     }
 
-    public ChildrenTaskRespont(String id, String name, String content, int progress) {
+    public ChildrenTaskResponse(String id, String name, String content, int progress) {
         this.id = id;
         this.name = name;
         this.content = content;

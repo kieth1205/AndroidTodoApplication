@@ -5,24 +5,24 @@
 
     <group>
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home"
+            android:title="@string/menu_home"/>
+        <item
             android:id="@+id/nav_note_list"
-            android:icon="@drawable/ic_note_list"
-            android:iconTint="#464641"
+            android:icon="@drawable/ic_baseline_note"
             android:title="@string/menu_note_list" />
         <item
             android:id="@+id/nav_task_list"
-            android:icon="@drawable/ic_task_list"
-            android:iconTint="#464641"
+            android:icon="@drawable/ic_baseline_task_list"
             android:title="@string/menu_task_list" />
         <item
             android:id="@+id/nav_todo_list"
-            android:icon="@drawable/ic_todo_list"
-            android:iconTint="#464641"
+            android:icon="@drawable/ic_baseline_todo"
             android:title="@string/menu_todo_list" />
         <item
             android:id="@+id/nav_tag"
-            android:icon="@drawable/ic_tag"
-            android:iconTint="#464641"
+            android:icon="@drawable/ic_baseline_tag"
             android:title="@string/menu_tag" />
     </group>
 </menu>
