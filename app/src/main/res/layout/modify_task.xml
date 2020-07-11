@@ -10,7 +10,6 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -20,7 +19,6 @@
             android:background="@color/colorPrimary"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:contentInsetStart="0dp">
-
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
@@ -32,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="New Note"
+                    android:text="New Task"
                     android:textColor="#ffffff"
                     android:textSize="18dp"
                     android:textStyle="bold"/>
@@ -56,11 +54,37 @@
             android:inputType="textMultiLine"
             android:padding="20dp"
             android:textColorHint="#CDD1D5"
-            android:hint="@string/note_hint"/>
-
+            android:hint="@string/task_hint"/>
 
         <LinearLayout
-            android:id="@+id/deleteNote"
+            android:id="@+id/custom_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/deleteTask"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="20dp"
+            android:onClick="chooseDate">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_date_picker" />
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="12/05/1998"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/deleteTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/save_btn"
@@ -83,8 +107,8 @@
                 android:layout_marginLeft="10dp"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:text="Delete Note"/>
+                android:textColor="#EC5D5D"
+                android:text="Delete Todo"/>
 
         </LinearLayout>
 

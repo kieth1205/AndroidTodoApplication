@@ -14,7 +14,6 @@ import butterknife.OnClick;
 
 public class TaskListFragment extends BaseFragment {
 
-
     @BindView(R.id.rv_list_task)
     RecyclerView rvListTask;
     @BindView(R.id.txt_no_data)

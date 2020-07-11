@@ -5,8 +5,8 @@ import android.view.View;
 
 import com.thang.noteapp.R;
 
-public class TodoListFragment extends BaseFragment {
 
+public class TodoListFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
@@ -17,4 +17,5 @@ public class TodoListFragment extends BaseFragment {
     protected void initializeViews(View view, Bundle savedInstanceState) {
 
     }
+
 }

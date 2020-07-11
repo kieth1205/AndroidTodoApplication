@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         app:elevation="0dp">
 
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="New Tag"
-                    android:textColor="#EC5D5D"
+                    android:textColor="#ffffff"
                     android:textSize="18dp"
                     android:textStyle="bold"/>
 
@@ -55,7 +54,7 @@
             android:inputType="textAutoComplete"
             android:padding="20dp"
             android:textColorHint="#CDD1D5"
-            android:hint="Name of new tag?"/>
+            android:hint="@string/tag_hint"/>
 
         <LinearLayout
             android:id="@+id/deleteTask"

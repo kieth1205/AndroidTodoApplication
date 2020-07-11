@@ -15,5 +15,8 @@
     <string name="menu_home">Home</string>
     <string name="key_No_Data">No Data</string>
 
-    <string name="todo_edit">Your planning</string>
+    <string name="todo_hint">What will you do?</string>
+    <string name="note_hint">Write something</string>
+    <string name="tag_hint">Add more tags</string>
+    <string name="task_hint">Your planning</string>
 </resources>

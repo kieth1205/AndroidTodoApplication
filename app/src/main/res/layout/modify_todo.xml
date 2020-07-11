@@ -30,8 +30,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="New Task"
-                    android:textColor="#EC5D5D"
+                    android:text="New Todo"
+                    android:textColor="#ffffff"
                     android:textSize="18dp"
                     android:textStyle="bold"/>
 
@@ -54,7 +54,7 @@
             android:inputType="textMultiLine"
             android:padding="20dp"
             android:textColorHint="#CDD1D5"
-            android:hint="What are yoy going to do?"/>
+            android:hint="@string/todo_hint"/>
 
         <LinearLayout
             android:id="@+id/custom_config"
