@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_5sdp"
+    android:layout_height="@dimen/_100sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tv_description_tasks"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:maxLines="2"
+            android:enabled="true"
+            android:ellipsize="end"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <RatingBar
+                android:layout_gravity="bottom|left"
+                android:id="@+id/rtb_tasks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_weight="1"
+                android:numStars="5"
+                android:rating="5"
+                tools:ignore="RtlHardcoded"/>
+
+            <TextView
+                android:id="@+id/tv_progress_tasks"
+                android:gravity="right|bottom"
+                android:layout_width="0dp"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:text="%"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right|bottom"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,12 +1,9 @@
 package com.thang.noteapp.views.activity;
 
 import androidx.annotation.Nullable;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.thang.noteapp.R;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,6 +23,6 @@ public class SplashActivity extends BaseActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        },2000);
+        }, 2000);
     }
 }
