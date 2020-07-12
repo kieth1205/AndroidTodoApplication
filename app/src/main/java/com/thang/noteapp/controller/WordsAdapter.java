@@ -3,7 +3,6 @@ package com.thang.noteapp.controller;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thang.noteapp.R;
-import com.thang.noteapp.common.evenbus.EventBusAction;
-import com.thang.noteapp.common.evenbus.FillWordEvent;
-import com.thang.noteapp.common.evenbus.RemoveWordsEvent;
+import com.thang.noteapp.common.eventbus.EventBusAction;
+import com.thang.noteapp.common.eventbus.FillWordEvent;
+import com.thang.noteapp.common.eventbus.RemoveWordsEvent;
 import com.thang.noteapp.net.response.ChildTaskResponse;
 
 import org.greenrobot.eventbus.EventBus;
@@ -35,7 +34,7 @@ public class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.ViewHolder> 
     }
 
     public void update(List<ChildTaskResponse> items) {
-        this.context = context;
+        this.items = items;
         notifyDataSetChanged();
     }
 

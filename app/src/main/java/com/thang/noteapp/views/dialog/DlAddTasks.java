@@ -16,10 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thang.noteapp.R;
-import com.thang.noteapp.common.evenbus.CloseDialogEvent;
-import com.thang.noteapp.common.evenbus.EventBusAction;
-import com.thang.noteapp.common.evenbus.FillWordEvent;
-import com.thang.noteapp.common.evenbus.RemoveWordsEvent;
+import com.thang.noteapp.common.eventbus.CloseDialogEvent;
+import com.thang.noteapp.common.eventbus.EventBusAction;
+import com.thang.noteapp.common.eventbus.FillWordEvent;
+import com.thang.noteapp.common.eventbus.RemoveWordsEvent;
 import com.thang.noteapp.controller.WordsAdapter;
 import com.thang.noteapp.net.FireBaseManager;
 import com.thang.noteapp.net.response.ChildTaskResponse;
@@ -111,9 +111,10 @@ public class DlAddTasks extends Dialog {
                 String title = edtTitle.getText().toString();
                 String description = edtDetail.getText().toString();
                 int prioritize = Integer.parseInt(spPrioritize.getSelectedItem().toString());
-                TasksResponse tasksResponse = new TasksResponse(title,tasks,prioritize,description);
+                TasksResponse tasksResponse = new TasksResponse(title, tasks, prioritize, description);
                 fireBaseManager.insertTasks(getContext(), tasksResponse);
-                Toast.makeText(getContext(), "Chung", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                EventBus.getDefault().post(new CloseDialogEvent(EventBusAction.Tasks.CLOSE_DIALOG));
             }
         });
 
