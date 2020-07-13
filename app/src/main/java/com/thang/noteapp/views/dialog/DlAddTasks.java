@@ -113,7 +113,8 @@ public class DlAddTasks extends Dialog {
                 int prioritize = Integer.parseInt(spPrioritize.getSelectedItem().toString());
                 TasksResponse tasksResponse = new TasksResponse(title,tasks,prioritize,description);
                 fireBaseManager.insertTasks(getContext(), tasksResponse);
-                Toast.makeText(getContext(), "Chung", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Saved!!!!", Toast.LENGTH_SHORT).show();
+                EventBus.getDefault().post(new CloseDialogEvent(EventBusAction.Tasks.CLOSE_DIALOG));
             }
         });
 

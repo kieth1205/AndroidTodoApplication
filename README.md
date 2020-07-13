@@ -1,5 +1,6 @@
 # AndroidTodoApplication
 Todo Application made by Android
+Ứng dụng ghi chép đa năng dành cho thiết bị di động.
 =============================================================================
 # Mô tả
 =============================================================================

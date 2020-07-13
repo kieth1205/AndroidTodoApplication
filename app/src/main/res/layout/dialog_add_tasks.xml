@@ -1,105 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_gravity="center"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/_250sdp"
-    android:padding="@dimen/_10sdp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edt_title"
-        android:textSize="@dimen/_14sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/key_Title"/>
+        <EditText
+            android:id="@+id/edt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/key_Title"
+            android:textSize="@dimen/_14sdp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/key_Prioritize"
-            android:textSize="@dimen/_14sdp"
-            android:textColor="@android:color/background_dark"/>
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/_14sdp" />
 
         <Spinner
             android:id="@+id/sp_prioritize"
             android:layout_width="@dimen/_80sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/key_works"
-            android:textSize="@dimen/_14sdp"
-            android:textColor="@android:color/background_dark"/>
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/_14sdp" />
 
-       <LinearLayout
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:gravity="right"
-           android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right">
 
-           <ImageView
-               android:id="@+id/img_add_word"
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:foregroundGravity="right"
-               android:src="@drawable/ic_baseline_add_circle_24"/>
-       </LinearLayout>
+            <ImageView
+                android:id="@+id/img_add_word"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:foregroundGravity="right"
+                android:src="@drawable/ic_baseline_add_circle_24" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_words"
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_130sdp"/>
+        android:layout_height="@dimen/_130sdp"
+        android:layout_marginTop="@dimen/_5sdp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_marginTop="@dimen/_5sdp"
-        android:id="@+id/edt_detail"
-        android:hint="@string/key_Description"
-        android:layout_width="match_parent"
-        android:lines="4"
-        android:scrollbars="vertical"
-        android:layout_height="@dimen/_100sdp"/>
+        <EditText
+            android:id="@+id/edt_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:hint="@string/key_Description"
+            android:lines="4"
+            android:scrollbars="vertical" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="@dimen/_30sdp"
+            android:layout_weight="1"
             android:background="@drawable/bg_button"
             android:text="@string/key_Save"
             android:textColor="@android:color/white" />
@@ -107,13 +106,13 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.1"/>
+            android:layout_weight="0.1" />
 
         <Button
             android:id="@+id/btn_clear"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="@dimen/_30sdp"
+            android:layout_weight="1"
             android:background="@drawable/bg_button"
             android:text="@string/key_Clear"
             android:textColor="@android:color/white" />

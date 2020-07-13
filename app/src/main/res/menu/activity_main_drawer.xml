@@ -25,4 +25,5 @@
             android:icon="@drawable/ic_baseline_tag"
             android:title="@string/menu_tag" />
     </group>
+
 </menu>
