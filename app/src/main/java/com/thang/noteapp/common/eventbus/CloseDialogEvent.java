@@ -1,4 +1,4 @@
-package com.thang.noteapp.common.evenbus;
+package com.thang.noteapp.common.eventbus;
 
 public class CloseDialogEvent {
     public String action;
