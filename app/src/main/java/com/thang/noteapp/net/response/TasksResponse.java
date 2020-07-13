@@ -9,7 +9,7 @@ public class TasksResponse {
     private List<ChildTaskResponse> childrenTasks;
     private int progress = 0;
     private int prioritize = 5;
-    private  String description;
+    private String description;
 
     public TasksResponse() {
     }

@@ -4,17 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-        <TimePicker
-            android:id="@+id/time_picker"
-            android:layout_width="159dp"
-            android:layout_height="wrap_content"
-            android:timePickerMode="spinner"/>
-
-        <DatePicker
-            android:id="@+id/date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:calendarViewShown="false"
-            android:datePickerMode="spinner" />
+    <DatePicker
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
 
 </LinearLayout>

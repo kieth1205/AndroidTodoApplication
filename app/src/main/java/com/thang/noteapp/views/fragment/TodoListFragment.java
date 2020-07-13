@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.thang.noteapp.R;
 
-
 public class TodoListFragment extends BaseFragment {
 
     @Override
