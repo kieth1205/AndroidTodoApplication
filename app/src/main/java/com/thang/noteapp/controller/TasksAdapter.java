@@ -1,6 +1,8 @@
 package com.thang.noteapp.controller;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +10,12 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thang.noteapp.R;
 import com.thang.noteapp.net.response.TasksResponse;
+import com.thang.noteapp.views.activity.TaskActivity;
 
 import java.util.List;
 
@@ -43,6 +47,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             holder.tvDescriptionTasks.setText(item.get(position).getDescription());
             holder.tvProgressTasks.setText(String.valueOf(item.get(position).getProgress()));
             holder.rtbTasks.setRating(item.get(position).getPrioritize());
+            holder.cvTasks.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, TaskActivity.class));
+                }
+            });
     }
 
     @Override
@@ -58,6 +68,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
         private TextView tvDescriptionTasks;
         private RatingBar rtbTasks;
         private TextView tvProgressTasks;
+        private CardView cvTasks;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +76,8 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             tvDescriptionTasks = itemView.findViewById(R.id.tv_description_tasks);
             rtbTasks = itemView.findViewById(R.id.rtb_tasks);
             tvProgressTasks = itemView.findViewById(R.id.tv_progress_tasks);
+            cvTasks = itemView.findViewById(R.id.cv_tasks);
+
         }
     }
 }

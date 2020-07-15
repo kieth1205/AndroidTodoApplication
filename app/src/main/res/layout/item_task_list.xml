@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="@dimen/_10sdp"
     app:cardCornerRadius="@dimen/_5sdp"
-    android:layout_height="@dimen/_100sdp"
-    android:layout_width="match_parent">
+    android:id="@+id/cv_tasks"
+    android:layout_height="@dimen/_80sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             android:id="@+id/tv_description_tasks"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="@dimen/_20sdp"
             android:maxLines="2"
             android:enabled="true"
             android:ellipsize="end"/>
@@ -36,18 +37,26 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
             android:layout_height="match_parent">
 
-            <RatingBar
-                android:layout_gravity="bottom|left"
-                android:id="@+id/rtb_tasks"
+            <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                style="?android:attr/ratingBarStyleIndicator"
                 android:layout_weight="1"
-                android:numStars="5"
-                android:rating="5"
-                tools:ignore="RtlHardcoded"/>
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:layout_gravity="bottom|left"
+                    android:id="@+id/rtb_tasks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:numStars="5"
+                    android:stepSize="1"
+                    android:rating="5"
+                    tools:ignore="RtlHardcoded"/>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_progress_tasks"

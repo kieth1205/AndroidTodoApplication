@@ -6,4 +6,5 @@ public class CloseDialogEvent {
     public CloseDialogEvent(String action) {
         this.action = action;
     }
+
 }

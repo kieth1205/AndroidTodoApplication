@@ -25,5 +25,6 @@
     <string name="key_Description">Description</string>
     <string name="key_Save">Save</string>
     <string name="key_Clear">Clear</string>
+    <string name="title_activity_task">TaskActivity</string>
     key_Prioritize
 </resources>
