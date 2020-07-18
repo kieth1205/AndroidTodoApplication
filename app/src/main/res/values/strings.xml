@@ -26,5 +26,10 @@
     <string name="key_Save">Save</string>
     <string name="key_Clear">Clear</string>
     <string name="title_activity_task">TaskActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="key_Infomation_Task">Infomation</string>
+    <string name="key_percent">%</string>
+    <string name="key_works1">Works</string>
     key_Prioritize
 </resources>

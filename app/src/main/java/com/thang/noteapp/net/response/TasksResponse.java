@@ -1,8 +1,11 @@
 package com.thang.noteapp.net.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class TasksResponse {
+public class TasksResponse implements Parcelable {
 
     private String id;
     private String title;
@@ -28,6 +31,26 @@ public class TasksResponse {
         this.prioritize = prioritize;
         this.description = description;
     }
+
+    protected TasksResponse(Parcel in) {
+        id = in.readString();
+        title = in.readString();
+        progress = in.readInt();
+        prioritize = in.readInt();
+        description = in.readString();
+    }
+
+    public static final Creator<TasksResponse> CREATOR = new Creator<TasksResponse>() {
+        @Override
+        public TasksResponse createFromParcel(Parcel in) {
+            return new TasksResponse(in);
+        }
+
+        @Override
+        public TasksResponse[] newArray(int size) {
+            return new TasksResponse[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -75,5 +98,20 @@ public class TasksResponse {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(title);
+        dest.writeParcelableList(childrenTasks,flags);
+        dest.writeInt(prioritize);
+        dest.writeInt(progress);
+        dest.writeString(description);
     }
 }

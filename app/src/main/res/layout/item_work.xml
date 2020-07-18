@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/_5sdp"
+    app:leftEdgeSwipeOffset="0dp"
+    android:background="@android:color/background_light"
+    app:rightEdgeSwipeOffset="0dp">
+
+    <LinearLayout
+        android:id="@+id/bottom_wraper"
+        android:layout_width="@dimen/_105sdp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/Edit"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/Delete"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:id="@+id/cv_tasks"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/_12sdp"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_number"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:background="@drawable/bg_text_word"/>
+
+                <SeekBar
+                    android:id="@+id/sb_word"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    android:layout_weight="8"/>
+
+                <CheckBox
+                    android:id="@+id/ck_word"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</com.daimajia.swipe.SwipeLayout>

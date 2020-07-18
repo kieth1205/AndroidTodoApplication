@@ -5,4 +5,6 @@
     <color name="colorAccent">#B03A2E</color>
 
     <color name="color_blue">#00aeef</color>
+    <color name="color_tab">#00FFFFFF</color>
+    <color name="color_text_tab">#69AFED</color>
 </resources>

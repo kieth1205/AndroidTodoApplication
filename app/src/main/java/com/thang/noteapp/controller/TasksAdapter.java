@@ -2,7 +2,7 @@ package com.thang.noteapp.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +14,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thang.noteapp.R;
+import com.thang.noteapp.common.eventbus.DataTask;
+import com.thang.noteapp.common.eventbus.EventBusAction;
 import com.thang.noteapp.net.response.TasksResponse;
 import com.thang.noteapp.views.activity.TaskActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -43,16 +47,21 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.tvTitleTasks.setText(item.get(position).getTitle());
-            holder.tvDescriptionTasks.setText(item.get(position).getDescription());
-            holder.tvProgressTasks.setText(String.valueOf(item.get(position).getProgress()));
-            holder.rtbTasks.setRating(item.get(position).getPrioritize());
-            holder.cvTasks.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    context.startActivity(new Intent(context, TaskActivity.class));
-                }
-            });
+        TasksResponse mData = item.get(position);
+        holder.tvTitleTasks.setText(mData.getTitle());
+        holder.tvDescriptionTasks.setText(mData.getDescription());
+        holder.tvProgressTasks.setText(String.valueOf(mData.getProgress()));
+        holder.rtbTasks.setRating(mData.getPrioritize());
+        holder.cvTasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().postSticky(new DataTask(EventBusAction.Tasks.DATA_TASK, mData));
+
+                Intent intent = new Intent(context, TaskActivity.class);
+//                intent.putExtra("task", mData);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

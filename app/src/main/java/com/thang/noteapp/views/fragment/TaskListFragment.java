@@ -38,7 +38,7 @@ public class TaskListFragment extends BaseFragment {
     private DlAddTasks dlAddTasks;
     private FireBaseManager fireBaseManager = new FireBaseManager();
     private List<TasksResponse> list = new ArrayList<>();
-    public TasksAdapter adapter;
+    private TasksAdapter adapter;
 
     @Override
     protected int getLayoutId() {
@@ -64,8 +64,7 @@ public class TaskListFragment extends BaseFragment {
                     if (adapter == null) {
                         adapter = new TasksAdapter(getContext(), list);
                         rvListTask.setAdapter(adapter);
-                    }
-                    else {
+                    } else {
                         adapter.update(list);
                     }
                 }

@@ -58,5 +58,8 @@ dependencies {
 
     //tag
     implementation 'com.github.kaedea:Android-Cloud-TagView-Plus:b546a5f073'
+
+    //swipelayout
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
 }
 apply plugin: 'com.google.gms.google-services'

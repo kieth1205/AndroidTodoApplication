@@ -1,6 +1,9 @@
 package com.thang.noteapp.net.response;
 
-public class ChildTaskResponse {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ChildTaskResponse implements Parcelable {
 
     private int id;
     private String name;
@@ -13,6 +16,24 @@ public class ChildTaskResponse {
         this.id = id;
         this.name = name;
     }
+
+    protected ChildTaskResponse(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        progress = in.readInt();
+    }
+
+    public static final Creator<ChildTaskResponse> CREATOR = new Creator<ChildTaskResponse>() {
+        @Override
+        public ChildTaskResponse createFromParcel(Parcel in) {
+            return new ChildTaskResponse(in);
+        }
+
+        @Override
+        public ChildTaskResponse[] newArray(int size) {
+            return new ChildTaskResponse[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -36,6 +57,18 @@ public class ChildTaskResponse {
 
     public void setProgress(int progress) {
         this.progress = progress;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeInt(progress);
     }
 }
 
