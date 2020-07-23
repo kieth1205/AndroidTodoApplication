@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.thang.noteapp.common.Constants;
 import com.thang.noteapp.common.utils.FireBaseUtils;
 import com.thang.noteapp.net.interfaces.TasksStatus;
+import com.thang.noteapp.net.response.ChildTaskResponse;
 import com.thang.noteapp.net.response.TasksResponse;
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ public class FireBaseManager {
 
     private FireBaseUtils utils = new FireBaseUtils();
     private List<TasksResponse> itemTasks = new ArrayList<>();
-    private TasksStatus tasksStatus ;
+    private TasksStatus tasksStatus;
 
-    public void setTasks(TasksStatus tasksStatus){
+    public void setTasks(TasksStatus tasksStatus) {
         this.tasksStatus = tasksStatus;
     }
 
@@ -75,6 +76,16 @@ public class FireBaseManager {
                 Log.e(Constants.TAG, "onCancelled: " + databaseError);
             }
         });
+    }
+
+    public void updateWord(Context context, ChildTaskResponse response, String key_extent) {
+        DatabaseReference mWork = this.getTasksRefernce(context).child(key_extent).child("childrenTasks").child(String.valueOf(response.getId()));
+        mWork.setValue(response);
+    }
+
+    public void deleteWork(Context context, ChildTaskResponse response, String key_extent) {
+        DatabaseReference mWork = this.getTasksRefernce(context).child(key_extent).child("childrenTasks").child(String.valueOf(response.getId()));
+        mWork.removeValue();
     }
 
     private String getAndroidId(Context context) {

@@ -1,10 +1,12 @@
 package com.thang.noteapp.views.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -71,17 +73,6 @@ public class TaskActivity extends BaseActivity {
         this.tabContact.setupWithViewPager(vpTask);
     }
 
-    private void setUp() {
-//        Intent intent = getIntent();
-//        item = intent.getParcelableExtra("task");
-        navTitle.setText(item.getTitle());
-        navRightProgress.setVisibility(View.VISIBLE);
-        navPercent.setVisibility(View.VISIBLE);
-        navRightText.setText(String.valueOf(item.getProgress()));
-
-        EventBus.getDefault().post(new DataTask(EventBusAction.Tasks.DATA_TASK, item));
-    }
-
     @OnClick(R.id.nav_left_button)
     public void onViewClicked() {
     }
@@ -90,7 +81,8 @@ public class TaskActivity extends BaseActivity {
     public void handleDataTask(DataTask event) {
         if (event.action.equals(EventBusAction.Tasks.DATA_TASK)) {
             item = event.data;
-            this.setUp();
+            navTitle.setText(item.getTitle());
+            navRightText.setText(String.valueOf(item.getProgress()));
         }
     }
 
@@ -109,5 +101,4 @@ public class TaskActivity extends BaseActivity {
             EventBus.getDefault().unregister(this);
         }
     }
-
 }

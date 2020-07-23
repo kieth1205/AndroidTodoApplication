@@ -52,7 +52,7 @@ public class WorksTaskFragment extends BaseFragment {
         if (event.action.equals(EventBusAction.Tasks.DATA_TASK)) {
             item = event.data;
 
-            adapter = new WordsDetailAdapter(getContext(),item.getChildrenTasks());
+            adapter = new WordsDetailAdapter(getContext(),item.getChildrenTasks(),item.getId());
             rvWords.setHasFixedSize(true);
             rvWords.setLayoutManager(new LinearLayoutManager(getContext()));
             rvWords.setAdapter(adapter);

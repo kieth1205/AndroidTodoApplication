@@ -30,7 +30,6 @@ public class DescriptionTaskFragment extends BaseFragment {
 
     @Override
     protected void initializeViews(View view, Bundle savedInstanceState) {
-
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED, sticky = true)

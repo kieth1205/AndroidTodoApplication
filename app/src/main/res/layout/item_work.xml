@@ -12,23 +12,26 @@
 
     <LinearLayout
         android:id="@+id/bottom_wraper"
-        android:layout_width="@dimen/_105sdp"
+        android:layout_width="@dimen/_80sdp"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="3">
 
         <ImageView
+            android:layout_marginStart="@dimen/_5sdp"
             android:id="@+id/Edit"
             android:src="@drawable/ic_baseline_edit_24"
-            android:layout_width="@dimen/_50sdp"
+            android:layout_width="@dimen/_35sdp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_green_light"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/color_blue"
             android:gravity="center"/>
 
         <ImageView
             android:id="@+id/Delete"
             android:src="@drawable/ic_baseline_delete_24"
-            android:layout_width="@dimen/_50sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_width="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_height="match_parent"
             android:background="@android:color/holo_red_light"
@@ -75,12 +78,12 @@
                     android:maxLines="1"
                     android:background="@drawable/bg_text_word"/>
 
+
                 <SeekBar
                     android:id="@+id/sb_word"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:max="100"
-                    android:layout_weight="8"/>
+                    android:layout_weight="8"
+                    android:layout_height="match_parent" />
 
                 <CheckBox
                     android:id="@+id/ck_word"
@@ -91,4 +94,5 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </com.daimajia.swipe.SwipeLayout>

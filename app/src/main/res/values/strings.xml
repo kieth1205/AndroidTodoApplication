@@ -31,5 +31,9 @@
     <string name="key_Infomation_Task">Infomation</string>
     <string name="key_percent">%</string>
     <string name="key_works1">Works</string>
+    <string name="key_update">Update</string>
+    <string name="key_name_wolk">Name Work</string>
+    <string name="key_Delete">Delete</string>
+    <string name="key_mess_delete">Do you really want to delete?</string>
     key_Prioritize
 </resources>

@@ -1,7 +1,10 @@
 package com.thang.noteapp.net.response;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
 
 import java.util.List;
 
