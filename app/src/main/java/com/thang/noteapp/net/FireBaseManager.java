@@ -12,12 +12,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.snapshot.Node;
 import com.thang.noteapp.common.Constants;
 import com.thang.noteapp.common.utils.FireBaseUtils;
+import com.thang.noteapp.net.interfaces.NodeStatus;
 import com.thang.noteapp.net.interfaces.TagsStatus;
 import com.thang.noteapp.net.interfaces.TasksStatus;
 import com.thang.noteapp.net.interfaces.TodosStatus;
 import com.thang.noteapp.net.response.ChildTaskResponse;
+import com.thang.noteapp.net.response.NodeResponse;
 import com.thang.noteapp.net.response.TagRespont;
 import com.thang.noteapp.net.response.TasksResponse;
 import com.thang.noteapp.net.response.TodoResponse;
@@ -33,9 +36,11 @@ public class FireBaseManager {
     private List<TasksResponse> itemTasks = new ArrayList<>();
     private List<TodoResponse> itemTodos = new ArrayList<>();
     private List<TagRespont> itemTag = new ArrayList<>();
+    private List<NodeResponse> itemNode = new ArrayList<>();
     private TasksStatus tasksStatus;
     private TodosStatus todosStatus;
     private TagsStatus tagsStatus;
+    private NodeStatus nodeStatus;
 
     public void setTasks(TasksStatus tasksStatus) {
         this.tasksStatus = tasksStatus;
@@ -47,6 +52,10 @@ public class FireBaseManager {
 
     public void setTags(TagsStatus tagsStatus){
         this.tagsStatus = tagsStatus;
+    }
+
+    public void setNote(NodeStatus nodeStatus){
+        this.nodeStatus = nodeStatus;
     }
 
     public void insertTasks(Context context, TasksResponse task) {
@@ -188,6 +197,46 @@ public class FireBaseManager {
         });
     }
 
+    public String insertNode(Context context, NodeResponse nodeResponse) {
+        DatabaseReference mNode = this.getNodeRefernce(context);
+        String key = mNode.push().getKey();
+        nodeResponse.setId(key);
+        utils.insert(nodeResponse.getId(), mNode, nodeResponse);
+        return key;
+    }
+
+    public void updateNode(NodeResponse nodeResponse, Context context) {
+        DatabaseReference mNode = this.getNodeRefernce(context);
+        assert nodeResponse != null;
+        utils.update(nodeResponse.getId(), mNode, nodeResponse);
+    }
+
+    public void deleteNode(NodeResponse nodeResponse, Context context) {
+        DatabaseReference mNode = this.getNodeRefernce(context);
+        assert nodeResponse != null;
+        utils.delete(nodeResponse.getId(), mNode);
+    }
+
+    public void getAllNode(Context context) {
+        DatabaseReference mNode = this.getNodeRefernce(context);
+        mNode.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemNode.clear();
+                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                    NodeResponse nodeResponse = childDataSnapshot.getValue(NodeResponse.class);
+                    itemNode.add(nodeResponse);
+                }
+                nodeStatus.getData(itemNode);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(Constants.TAG, "onCancelled: " + databaseError);
+            }
+        });
+    }
+
     private String getAndroidId(Context context) {
         @SuppressLint("HardwareIds") String android_id = Settings.Secure.getString(context.getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -210,5 +259,11 @@ public class FireBaseManager {
         String androidId = this.getAndroidId(context);
         DatabaseReference mTag = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.TAG);
         return mTag;
+    }
+
+    private DatabaseReference getNodeRefernce(Context context) {
+        String androidId = this.getAndroidId(context);
+        DatabaseReference mNode = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.NOTE);
+        return mNode;
     }
 }
