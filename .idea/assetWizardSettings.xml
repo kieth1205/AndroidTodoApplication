@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/edit/baseline_edit_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/local_offer/baseline_local_offer_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,9 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_edit_24" />
-                            <entry key="sourceFile" value="D:\AndroidTest\NodeApp" />
+                            <entry key="color" value="00aeef" />
+                            <entry key="outputName" value="ic_baseline_local_offer_24" />
+                            <entry key="sourceFile" value="$APPLICATION_HOME_DIR$/bin/D:\AndroidTest\NodeApp" />
                           </map>
                         </option>
                       </PersistentState>

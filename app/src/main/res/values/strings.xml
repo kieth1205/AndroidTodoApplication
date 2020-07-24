@@ -35,5 +35,8 @@
     <string name="key_name_wolk">Name Work</string>
     <string name="key_Delete">Delete</string>
     <string name="key_mess_delete">Do you really want to delete?</string>
+    <string name="key_Name">Name: </string>
+    <string name="key_time_start">"Start Date: "</string>
+    <string name="key_title_delete">Do you really want to delete?</string>
     key_Prioritize
 </resources>

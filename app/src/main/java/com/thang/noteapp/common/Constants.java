@@ -6,5 +6,6 @@ public class Constants {
 
     public class FireBase {
         public static final String TASK_LIST = "TASK_LIST";
+        public static final String TODO_LIST = "TODO_LIST";
     }
 }

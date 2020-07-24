@@ -9,4 +9,7 @@ public class EventBusAction {
         public static final String DATA_TASK = "DATA_TASK";
     }
 
+    public class Todo {
+        public static final String UPDATE_TODO = "UPDATE_TODO";
+    }
 }

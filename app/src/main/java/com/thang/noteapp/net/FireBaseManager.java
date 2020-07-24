@@ -15,8 +15,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.thang.noteapp.common.Constants;
 import com.thang.noteapp.common.utils.FireBaseUtils;
 import com.thang.noteapp.net.interfaces.TasksStatus;
+import com.thang.noteapp.net.interfaces.TodosStatus;
 import com.thang.noteapp.net.response.ChildTaskResponse;
 import com.thang.noteapp.net.response.TasksResponse;
+import com.thang.noteapp.net.response.TodoResponse;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,10 +29,16 @@ public class FireBaseManager {
 
     private FireBaseUtils utils = new FireBaseUtils();
     private List<TasksResponse> itemTasks = new ArrayList<>();
+    private List<TodoResponse> itemTodos = new ArrayList<>();
     private TasksStatus tasksStatus;
+    private TodosStatus todosStatus;
 
     public void setTasks(TasksStatus tasksStatus) {
         this.tasksStatus = tasksStatus;
+    }
+
+    public void setTodo(TodosStatus todosStatus) {
+        this.todosStatus = todosStatus;
     }
 
     public void insertTasks(Context context, TasksResponse task) {
@@ -88,6 +96,51 @@ public class FireBaseManager {
         mWork.removeValue();
     }
 
+    public void insertTodo(Context context, TodoResponse todoResponse) {
+        DatabaseReference mTodos = this.getTodosRefernce(context);
+        String key = mTodos.push().getKey();
+        todoResponse.setId(key);
+        utils.insert(todoResponse.getId(), mTodos, todoResponse);
+    }
+
+    public void updateTodo(TodoResponse todo, Context context) {
+        DatabaseReference mTodos = this.getTodosRefernce(context);
+        assert todo != null;
+        utils.update(todo.getId(), mTodos, todo);
+    }
+
+    public void deleteTodo(TodoResponse todo, Context context) {
+        DatabaseReference mTodos = this.getTodosRefernce(context);
+        assert todo != null;
+        utils.delete(todo.getId(), mTodos);
+    }
+
+    public void getAllTodo(Context context) {
+        DatabaseReference mTodos = this.getTodosRefernce(context);
+        mTodos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemTodos.clear();
+                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                    TodoResponse todoResponse = childDataSnapshot.getValue(TodoResponse.class);
+                    itemTodos.add(todoResponse);
+                }
+//                Collections.sort(itemTodos, new Comparator<TodoResponse>() {
+//                    @Override
+//                    public int compare(TodoResponse o1, TodoResponse o2) {
+//                        return String.valueOf(o2.getDateStart()).compareTo(String.valueOf(o1.getDateStart()));
+//                    }
+//                });
+                todosStatus.getData(itemTodos);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(Constants.TAG, "onCancelled: " + databaseError);
+            }
+        });
+    }
+
     private String getAndroidId(Context context) {
         @SuppressLint("HardwareIds") String android_id = Settings.Secure.getString(context.getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -97,6 +150,12 @@ public class FireBaseManager {
     private DatabaseReference getTasksRefernce(Context context) {
         String androidId = this.getAndroidId(context);
         DatabaseReference mTasks = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.TASK_LIST);
+        return mTasks;
+    }
+
+    private DatabaseReference getTodosRefernce(Context context) {
+        String androidId = this.getAndroidId(context);
+        DatabaseReference mTasks = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.TODO_LIST);
         return mTasks;
     }
 }
