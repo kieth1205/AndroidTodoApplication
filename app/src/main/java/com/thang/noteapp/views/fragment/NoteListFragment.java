@@ -63,6 +63,6 @@ public class NoteListFragment extends BaseFragment {
     @OnClick(R.id.fab_note_list)
     public void onViewClicked() {
         NodeResponse nodeResponse = new NodeResponse("");
-        String key = fireBaseManager.insertNode(getContext(),)
+        String key = fireBaseManager.insertNode(getContext(),nodeResponse);
     }
 }
