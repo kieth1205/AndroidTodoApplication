@@ -14,9 +14,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.thang.noteapp.common.Constants;
 import com.thang.noteapp.common.utils.FireBaseUtils;
+import com.thang.noteapp.net.interfaces.TagsStatus;
 import com.thang.noteapp.net.interfaces.TasksStatus;
 import com.thang.noteapp.net.interfaces.TodosStatus;
 import com.thang.noteapp.net.response.ChildTaskResponse;
+import com.thang.noteapp.net.response.TagRespont;
 import com.thang.noteapp.net.response.TasksResponse;
 import com.thang.noteapp.net.response.TodoResponse;
 
@@ -30,8 +32,10 @@ public class FireBaseManager {
     private FireBaseUtils utils = new FireBaseUtils();
     private List<TasksResponse> itemTasks = new ArrayList<>();
     private List<TodoResponse> itemTodos = new ArrayList<>();
+    private List<TagRespont> itemTag = new ArrayList<>();
     private TasksStatus tasksStatus;
     private TodosStatus todosStatus;
+    private TagsStatus tagsStatus;
 
     public void setTasks(TasksStatus tasksStatus) {
         this.tasksStatus = tasksStatus;
@@ -39,6 +43,10 @@ public class FireBaseManager {
 
     public void setTodo(TodosStatus todosStatus) {
         this.todosStatus = todosStatus;
+    }
+
+    public void setTags(TagsStatus tagsStatus){
+        this.tagsStatus = tagsStatus;
     }
 
     public void insertTasks(Context context, TasksResponse task) {
@@ -141,6 +149,45 @@ public class FireBaseManager {
         });
     }
 
+    public void insertTag(Context context, TagRespont tagRespont) {
+        DatabaseReference mTag = this.getTagRefernce(context);
+        String key = mTag.push().getKey();
+        tagRespont.setId(key);
+        utils.insert(tagRespont.getId(), mTag, tagRespont);
+    }
+
+    public void updateTag(TagRespont tagRespont, Context context) {
+        DatabaseReference mTag = this.getTagRefernce(context);
+        assert tagRespont != null;
+        utils.update(tagRespont.getId(), mTag, tagRespont);
+    }
+
+    public void deleteTag(TagRespont tagRespont, Context context) {
+        DatabaseReference mTag = this.getTagRefernce(context);
+        assert tagRespont != null;
+        utils.delete(tagRespont.getId(), mTag);
+    }
+
+    public void getAllTag(Context context) {
+        DatabaseReference mTag = this.getTagRefernce(context);
+        mTag.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemTag.clear();
+                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                    TagRespont tagRespont = childDataSnapshot.getValue(TagRespont.class);
+                    itemTag.add(tagRespont);
+                }
+                tagsStatus.getData(itemTag);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(Constants.TAG, "onCancelled: " + databaseError);
+            }
+        });
+    }
+
     private String getAndroidId(Context context) {
         @SuppressLint("HardwareIds") String android_id = Settings.Secure.getString(context.getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -157,5 +204,11 @@ public class FireBaseManager {
         String androidId = this.getAndroidId(context);
         DatabaseReference mTasks = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.TODO_LIST);
         return mTasks;
+    }
+
+    private DatabaseReference getTagRefernce(Context context) {
+        String androidId = this.getAndroidId(context);
+        DatabaseReference mTag = FirebaseDatabase.getInstance().getReference(androidId).child(Constants.FireBase.TAG);
+        return mTag;
     }
 }

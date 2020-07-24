@@ -1,12 +1,9 @@
 package com.thang.noteapp.views.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -17,7 +14,6 @@ import com.thang.noteapp.R;
 import com.thang.noteapp.common.eventbus.DataTask;
 import com.thang.noteapp.common.eventbus.EventBusAction;
 import com.thang.noteapp.controller.ChildTaskAdapter;
-import com.thang.noteapp.controller.WordsDetailAdapter;
 import com.thang.noteapp.net.response.TasksResponse;
 import com.thang.noteapp.views.fragment.DescriptionTaskFragment;
 import com.thang.noteapp.views.fragment.WorksTaskFragment;
@@ -30,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TaskActivity extends BaseActivity {

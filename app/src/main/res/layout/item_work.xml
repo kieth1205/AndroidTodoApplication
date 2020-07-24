@@ -12,10 +12,20 @@
 
     <LinearLayout
         android:id="@+id/bottom_wraper"
-        android:layout_width="@dimen/_80sdp"
+        android:layout_width="@dimen/_120sdp"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="3">
+
+        <ImageView
+            android:layout_marginStart="@dimen/_5sdp"
+            android:id="@+id/setTag"
+            android:src="@drawable/ic_baseline_local_offer_white_24"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_5sdp"
+            android:background="@android:color/holo_green_light"
+            android:gravity="center"/>
 
         <ImageView
             android:layout_marginStart="@dimen/_5sdp"

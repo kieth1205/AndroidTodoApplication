@@ -15,15 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.thang.noteapp.R;
-import com.thang.noteapp.common.eventbus.CloseDialogEvent;
 import com.thang.noteapp.common.eventbus.EventBusAction;
+import com.thang.noteapp.common.eventbus.SetTagEvent;
 import com.thang.noteapp.common.eventbus.UpdateTodoEvent;
 import com.thang.noteapp.net.FireBaseManager;
 import com.thang.noteapp.net.response.TodoResponse;
-import com.thang.noteapp.views.dialog.DlAddTodo;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -34,7 +32,6 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
     private List<TodoResponse> items;
     private String myFormat = "MM/dd/yyyy";
     private SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-    private DlAddTodo dlAddTodo;
 
     public TodoApdater(Context context, List<TodoResponse> items) {
         this.context = context;
@@ -57,11 +54,14 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.swipe.setShowMode(SwipeLayout.ShowMode.PullOut);
         holder.tvName.setText(items.get(position).getName());
-        holder.tvDate.setText(sdf.format(items.get(position).getDateStart().getTime()));
+        if (items.get(position).getDateStart() != null) {
+            holder.tvDate.setText(sdf.format(items.get(position).getDateStart().getTime()));
+        }
         if (items.get(position).getTag_status() != 0){
             holder.llTag.setVisibility(View.VISIBLE);
             holder.tvTag.setText(items.get(position).getTag_status());
         }
+
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +70,13 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
             }
         });
 
+        holder.imgSetTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.swipe.close();
+                EventBus.getDefault().post(new SetTagEvent(EventBusAction.Tag.SET_TAG,null, items.get(position)));
+            }
+        });
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,13 +118,7 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
                 }
             }
         });
-    }
 
-    @Subscribe
-    public void handleCloseDialog(CloseDialogEvent event) {
-        if (event.action.equals(EventBusAction.Tasks.CLOSE_DIALOG)) {
-            dlAddTodo.dismiss();
-        }
     }
 
     private void dialogDelete(Context context, TodoResponse todoResponse){
@@ -160,6 +161,7 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
         private TextView tvDate;
         private LinearLayout llTag;
         private TextView tvTag;
+        private ImageView imgSetTag;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -172,6 +174,7 @@ public class TodoApdater extends RecyclerView.Adapter<TodoApdater.ViewHolder> {
             tvDate = itemView.findViewById(R.id.tv_date);
             llTag = itemView.findViewById(R.id.ll_tag);
             tvTag = itemView.findViewById(R.id.tv_tag);
+            imgSetTag = itemView.findViewById(R.id.img_set_tag);
         }
     }
 }

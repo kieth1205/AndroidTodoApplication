@@ -8,14 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thang.noteapp.R;
+import com.thang.noteapp.common.Constants;
 import com.thang.noteapp.common.eventbus.CloseDialogEvent;
 import com.thang.noteapp.common.eventbus.EventBusAction;
+import com.thang.noteapp.common.eventbus.SetTagEvent;
 import com.thang.noteapp.common.eventbus.UpdateTodoEvent;
 import com.thang.noteapp.controller.TodoApdater;
 import com.thang.noteapp.net.FireBaseManager;
 import com.thang.noteapp.net.interfaces.TodosStatus;
+import com.thang.noteapp.net.response.TagRespont;
 import com.thang.noteapp.net.response.TodoResponse;
 import com.thang.noteapp.views.dialog.DlAddTodo;
+import com.thang.noteapp.views.dialog.DlSetTag;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -36,6 +40,7 @@ public class TodoListFragment extends BaseFragment {
     private TodoApdater adapter;
     private List<TodoResponse> items = new ArrayList<>();
     private DlAddTodo dlAddTodo;
+    private DlSetTag dlSetTag;
 
     @Override
     protected int getLayoutId() {
@@ -78,7 +83,11 @@ public class TodoListFragment extends BaseFragment {
     @Subscribe
     public void handleCloseDialog(CloseDialogEvent event) {
         if (event.action.equals(EventBusAction.Tasks.CLOSE_DIALOG)) {
-            dlAddTodo.dismiss();
+            if (dlAddTodo.isShowing()){
+                dlAddTodo.dismiss();
+            } if (dlSetTag.isShowing()){
+                dlSetTag.dismiss();
+            }
         }
     }
 
@@ -87,6 +96,15 @@ public class TodoListFragment extends BaseFragment {
         if (event.action.equals(EventBusAction.Todo.UPDATE_TODO)) {
             dlAddTodo = new DlAddTodo(getActivity(), event.item);
             dlAddTodo.show();
+        }
+    }
+
+    @Subscribe
+    public void handleSetTag(SetTagEvent event) {
+        if (event.action.equals(EventBusAction.Tag.SET_TAG)) {
+            TagRespont tagRespont = new TagRespont(Constants.FireBase.TODO_LIST,event.todo.getId(),null,event.todo.getName());
+            dlSetTag = new DlSetTag(getActivity(), tagRespont);
+            dlSetTag.show();
         }
     }
 

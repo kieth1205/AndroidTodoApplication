@@ -21,8 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.thang.noteapp.R;
+import com.thang.noteapp.common.eventbus.EventBusAction;
+import com.thang.noteapp.common.eventbus.SetTagEvent;
 import com.thang.noteapp.net.FireBaseManager;
 import com.thang.noteapp.net.response.ChildTaskResponse;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -150,6 +154,14 @@ public class WordsDetailAdapter extends RecyclerView.Adapter<WordsDetailAdapter.
                 holder.swipe.close();
             }
         });
+
+        holder.setTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.swipe.close();
+                EventBus.getDefault().post(new SetTagEvent(EventBusAction.Tag.SET_TAG, item.get(position), null));
+            }
+        });
     }
 
     @Override
@@ -223,6 +235,7 @@ public class WordsDetailAdapter extends RecyclerView.Adapter<WordsDetailAdapter.
         private SeekBar sbWord;
         private CheckBox ckWord;
         private TextView tvNumber;
+        private ImageView setTag;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -235,6 +248,7 @@ public class WordsDetailAdapter extends RecyclerView.Adapter<WordsDetailAdapter.
             sbWord = itemView.findViewById(R.id.sb_word);
             ckWord = itemView.findViewById(R.id.ck_word);
             tvNumber = itemView.findViewById(R.id.tv_number);
+            setTag = itemView.findViewById(R.id.setTag);
         }
     }
 }
