@@ -31,5 +31,16 @@
     <string name="key_Infomation_Task">Infomation</string>
     <string name="key_percent">%</string>
     <string name="key_works1">Works</string>
+    <string name="key_update">Update</string>
+    <string name="key_name_wolk">Name Work</string>
+    <string name="key_Delete">Delete</string>
+    <string name="key_mess_delete">Do you really want to delete?</string>
+    <string name="key_Name">Name: </string>
+    <string name="key_time_start">"Start Date: "</string>
+    <string name="key_title_delete">Do you really want to delete?</string>
+    <string name="key_tag_work">Work</string>
+    <string name="key_tag_family">Family</string>
+    <string name="key_tag_other">Other</string>
+    <string name="key_set_tag">Set Tag</string>
     key_Prioritize
 </resources>

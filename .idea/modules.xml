@@ -3,11 +3,17 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidTodoApplication-NodeApp.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidTodoApplication-NodeApp.iml" group="NodeApp" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Demo-NodeApp.iml" filepath="$PROJECT_DIR$/.idea/modules/Demo-NodeApp.iml" group="NodeApp" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Demo-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Demo-app.iml" group="NodeApp/app" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidTodoApplication-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidTodoApplication-app.iml" group="NodeApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitHub-AndroidTodoApplication-NodeApp.iml" filepath="$PROJECT_DIR$/.idea/modules/GitHub-AndroidTodoApplication-NodeApp.iml" group="NodeApp" />
+>>>>>>> origin/firebase
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NodeApp.iml" filepath="$PROJECT_DIR$/.idea/modules/NodeApp.iml" group="NodeApp" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NodeApp-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NodeApp-app.iml" group="NodeApp/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="NodeApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chungnt-AndroidTodoApplication-NodeApp.iml" filepath="$PROJECT_DIR$/.idea/modules/chungnt-AndroidTodoApplication-NodeApp.iml" group="NodeApp" />
     </modules>
   </component>
 </project>

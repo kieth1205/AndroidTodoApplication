@@ -2,6 +2,7 @@ package com.thang.noteapp.views.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.thang.noteapp.R;
 import com.thang.noteapp.common.eventbus.DataTask;
@@ -12,8 +13,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import butterknife.BindView;
+
 public class DescriptionTaskFragment extends BaseFragment {
 
+    @BindView(R.id.tv_description)
+    TextView tvDescription;
     private TasksResponse item;
 
     public static DescriptionTaskFragment newInstance() {
@@ -30,13 +35,14 @@ public class DescriptionTaskFragment extends BaseFragment {
 
     @Override
     protected void initializeViews(View view, Bundle savedInstanceState) {
-
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED, sticky = true)
     public void handleDataTask(DataTask event) {
         if (event.action.equals(EventBusAction.Tasks.DATA_TASK)) {
             item = event.data;
+
+            tvDescription.setText(item.getDescription());
         }
     }
 
